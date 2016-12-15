@@ -1,0 +1,20 @@
+Pod::Spec.new do |s|
+  s.name           = "AKGADWrapper"
+  s.version        = "1.0.0"
+  s.summary        = "UIViewController wrapper with the AdMob"
+  s.description    = "A wrapper for a UIViewController with a GADBannerView at the bottom and autolayout support"
+  s.homepage       = "https://github.com/numen31337/AKGADWrapper"
+  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+  s.author         = { "Oleksandr Kirichenko" => "numen31337@gmail.com" }
+  s.social_media_url    = "https://www.facebook.com/AleksandrKirichenko"
+  s.platform              = :ios
+  s.ios.deployment_target = "8.0"
+  s.source       = { :git => "https://github.com/numen31337/AKGADWrapper.git", :tag => "#{s.version}" }
+  s.source_files  = "AKGADWrapper/*.{h,m}"
+  s.framework  = "UIKit"
+  s.requires_arc = true
+
+  s.dependency 'Google-Mobile-Ads-SDK'
+  s.dependency 'SAMKeychain'
+end
