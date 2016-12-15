@@ -17,4 +17,10 @@ Pod::Spec.new do |s|
 
   s.dependency 'Google-Mobile-Ads-SDK'
   s.dependency 'SAMKeychain'
+
+  s.pod_target_xcconfig = {
+    'FRAMEWORK_SEARCH_PATHS' => '$(PODS_ROOT)/Google-Mobile-Ads-SDK/**',
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+  }
+
 end
