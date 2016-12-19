@@ -22,6 +22,37 @@ pod "AKGADWrapper", "~> 1.0"
 
 Then run `pod install`.
 
+##Usage
+
+####Example of wrapping `rootViewController`
+```objective-c
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+	//Instantiate a UIViewController to wrap
+	UIViewController *mainVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+	//Instantiate a AKGADWrapperVC with UIViewController to wrap and your Ad Unit ID 
+	AKGADWrapperVC *wrappedVC = [[AKGADWrapperVC alloc] initWithViewController:mainVC adUnitID:@"ca-app-pub-3940256099942544/2934735716"];
+	//Optionally set targeting options
+	wrappedVC.gender = GADBaseGenderMale;
+	//Set as the rootViewController
+	self.window.rootViewController = wrappedVC; 
+   
+	return YES;
+}
+```
+
+####Removing Ads
+To remove Ads simply call `removeAds:` with `true` for disabling them forever or `false` for just a particular banner.
+```objective-c
+[wrapper removeAds:false];
+```
+
+####Delaying Ads presentation
+In order to improve retention of your application, there is `showAdsAfter` feature which helps you to set a delay for presenting adds only after some amount of application launches. To start presenting Ads only on 3rd launch just set this property to `2` before presenting `AKGADWrapperVC` instance.
+```objective-c
+wrapper.showAdsAfter = 2;
+```
+
 ##License (MIT)
 
 Copyright (c) 2016 Oleksandr Kirichenko
