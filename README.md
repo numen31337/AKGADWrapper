@@ -6,14 +6,14 @@
 
 ![AKVideoImageView Example](Resources/example.gif)
 
-##Installation
+## Installation
 
-####Manually and Swift
+#### Manually and Swift
 As this class uses AdMob as the external dependency, there is no way to use it while specifying `use_frameworks!`, because currently, AdMob is the static library itself.
 
 In order to use this class you just need to copy `AKGADWrapperVC.h` and `AKGADWrapperVC.m` files and install [SAMKeychain](https://cocoapods.org/pods/SAMKeychain) and [Google-Mobile-Ads-SDK](https://cocoapods.org/pods/Google-Mobile-Ads-SDK) libraries as dependencies or connect them manually.
 
-####CocoaPods: Objective-C only
+#### CocoaPods: Objective-C only
 Add the following line to your Podfile.
 
 ```
@@ -22,9 +22,9 @@ pod "AKGADWrapper", "~> 1.0"
 
 Then run `pod install`.
 
-##Usage
+## Usage
 
-####Example of wrapping `rootViewController`
+#### Example of wrapping `rootViewController`
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -41,19 +41,19 @@ Then run `pod install`.
 }
 ```
 
-####Removing Ads
+#### Removing Ads
 To remove Ads simply call `removeAds:` with `true` for disabling them forever or `false` for just a particular banner.
 ```objective-c
 [wrapper removeAds:false];
 ```
 
-####Delaying Ads presentation
+#### Delaying Ads presentation
 In order to improve retention of your application, there is `showAdsAfter` feature which helps you to set a delay for presenting adds only after some amount of application launches. To start presenting Ads only on 3rd launch just set this property to `2` before presenting `AKGADWrapperVC` instance.
 ```objective-c
 wrapper.showAdsAfter = 2;
 ```
 
-##License (MIT)
+## License (MIT)
 
 Copyright (c) 2016 Oleksandr Kirichenko
 
