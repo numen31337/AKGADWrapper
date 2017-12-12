@@ -1,6 +1,7 @@
 # AKGADWrapper
 ![Platform](https://img.shields.io/cocoapods/p/AKGADWrapper.svg)
 ![CocoaPods](https://img.shields.io/cocoapods/l/AKGADWrapper.svg)
+[![Build Status](https://travis-ci.org/numen31337/AKGADWrapper.svg?branch=master)](https://travis-ci.org/numen31337/AKGADWrapper)
 
 `AKGADWrapper` is a wrapper for a `UIViewController` with a `GADBannerView` at the bottom which automatically handles autolayout of the wrapped `UIViewController`. This was a very common task, which I stumbled upon with, during the development of applications using AdMob monetising.
 
