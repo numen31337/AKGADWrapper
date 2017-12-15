@@ -248,7 +248,8 @@ static NSString *const kKeyLaunchesWithoutAds = @"kKeyLaunchesWithoutAds";
     if (show) { self.adMobView.hidden = NO; }
     [self.view layoutIfNeeded];
     [UIView animateWithDuration:0.15 animations:^{
-        self.containerToBottomConstraint.constant = show ? -self.adMobView.bounds.size.height : 0;
+		CGFloat bottomOffset = self.bottomLayoutGuide.length + self.adMobView.bounds.size.height;
+		self.containerToBottomConstraint.constant = show ? -bottomOffset : 0;
         [self.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         if (!show) { self.adMobView.hidden = YES; }
