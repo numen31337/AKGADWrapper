@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name           = "AKGADWrapper"
-  s.version        = "1.0.1"
+  s.version        = "1.0.2"
   s.summary        = "UIViewController wrapper with the AdMob"
   s.description    = "A wrapper for a UIViewController with a GADBannerView at the bottom and autolayout support"
   s.homepage       = "https://github.com/numen31337/AKGADWrapper"
