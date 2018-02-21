@@ -239,6 +239,7 @@ static NSString *const kKeyLaunchesWithoutAds = @"kKeyLaunchesWithoutAds";
 {
     if (self.launchesWithoutAds <= self.showAdsAfter) {
         self.launchesWithoutAds += 1;
+    } else {
         [self loadBanner];
     }
 }
