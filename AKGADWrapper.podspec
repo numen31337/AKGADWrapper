@@ -5,8 +5,7 @@ Pod::Spec.new do |s|
   s.description    = "A wrapper for a UIViewController with a GADBannerView at the bottom and autolayout support"
   s.homepage       = "https://github.com/numen31337/AKGADWrapper"
   s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.author         = { "Oleksandr Kirichenko" => "numen31337@gmail.com" }
-  s.social_media_url    = "https://www.facebook.com/AleksandrKirichenko"
+  s.author         = { "Oleksandr Kirichenko" => "contact@oleksandrkirichenko.com" }
   s.platform              = :ios
   s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/numen31337/AKGADWrapper.git", :tag => "#{s.version}" }
