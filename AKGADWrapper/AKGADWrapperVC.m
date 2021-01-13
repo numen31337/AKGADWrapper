@@ -19,7 +19,9 @@
 @property (weak, nonatomic) GADBannerView *adMobView;
 @property (weak, nonatomic) NSLayoutConstraint *containerToBottomConstraint;
 
+/// A computed property. Stores it's value in the keychain and when set to `true` will keep the ads hidden even between the app launches.
 @property (assign, nonatomic) BOOL adsRemoved;
+/// When set to `true` prevents the received banner from being shown.
 @property (assign, nonatomic) BOOL adsViewIsHidden;
 
 @property (assign, nonatomic) NSInteger launchesWithoutAds;
@@ -133,6 +135,7 @@ static NSString *const kKeyLaunchesWithoutAds = @"kKeyLaunchesWithoutAds";
 
 - (void)initBannerView
 {
+    GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = @[kGADSimulatorID];
     GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
     [self.view addSubview:bannerView];
     self.adMobView = bannerView;
@@ -220,14 +223,12 @@ static NSString *const kKeyLaunchesWithoutAds = @"kKeyLaunchesWithoutAds";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         GADRequest *bannerRequest = [[GADRequest alloc] init];
-        bannerRequest.gender = (GADGender)self.gender;
-        if (self.birthday) { bannerRequest.birthday = self.birthday; }
         if (self.locationAccuracy != 0 && self.locationLatitude != 0 && self.locationLongitude != 0) {
             [bannerRequest setLocationWithLatitude:self.locationLatitude
                                          longitude:self.locationLongitude
                                           accuracy:self.locationAccuracy];
         }
-        bannerRequest.testDevices = @[kGADSimulatorID];
+        
         [self.adMobView loadRequest:bannerRequest];
     });
 }

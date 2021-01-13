@@ -1,6 +1,0 @@
-osx_image: xcode9.2
-language: objective-c
-xcode_sdk: iphonesimulator
-podfile: Example/Podfile
-
-script: xcodebuild build -workspace Example/Example.xcworkspace -scheme Example CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""

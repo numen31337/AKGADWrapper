@@ -13,16 +13,6 @@
  */
 @interface AKGADWrapperVC : UIViewController
 
-typedef NS_ENUM(NSInteger, GADBaseGender) {
-    GADBaseGenderUnknown,
-    GADBaseGenderMale,
-    GADBaseGenderFemale
-};
-
-/** Optional user's gender */
-@property (assign, nonatomic) GADBaseGender gender;
-/** Optional user's birthday */
-@property (strong, nonatomic, nullable) NSDate *birthday;
 /** Optional user's location */
 @property (assign, nonatomic) CGFloat locationLongitude;
 /** Optional user's location */
@@ -55,7 +45,7 @@ typedef NS_ENUM(NSInteger, GADBaseGender) {
 /**
  * Removes ads
  *
- * @param forever Pass `true` to remove ads forever or `false` to disable ads until next banner will be received
+ * @param forever Pass `true` to remove ads forever or `false` to disable ads until the next app launch.
  */
 - (void)removeAds:(BOOL)forever;
 

@@ -29,9 +29,11 @@
     UIViewController *mainVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
     AKGADWrapperVC *wrappedVC = [[AKGADWrapperVC alloc] initWithViewController:mainVC
                                                                       adUnitID:@"ca-app-pub-3940256099942544/2934735716"];
-    wrappedVC.gender = GADBaseGenderMale;
     self.window.rootViewController = wrappedVC;
     self.wrappedVC = wrappedVC;
+    
+    /// Set the color under the banner for the frameless devices
+    wrappedVC.view.backgroundColor = [UIColor redColor];
     
     return YES;
 }

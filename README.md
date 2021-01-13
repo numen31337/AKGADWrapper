@@ -1,9 +1,8 @@
 # AKGADWrapper
 ![Platform](https://img.shields.io/cocoapods/p/AKGADWrapper.svg)
 ![CocoaPods](https://img.shields.io/cocoapods/l/AKGADWrapper.svg)
-[![Build Status](https://travis-ci.org/numen31337/AKGADWrapper.svg?branch=master)](https://travis-ci.org/numen31337/AKGADWrapper)
 
-`AKGADWrapper` is a wrapper for a `UIViewController` with a `GADBannerView` at the bottom which automatically handles autolayout of the wrapped `UIViewController`. This was a very common task, which I stumbled upon with, during the development of applications using AdMob monetising.
+`AKGADWrapper` is a wrapper for a `UIViewController` with a `GADBannerView` at the bottom which automatically handles autolayout of the wrapped `UIViewController`. This is a very common task I stumbled upon during the development of apps that are displaying an AdMob banner.
 
 ![AKVideoImageView Example](Resources/example.gif)
 
@@ -14,18 +13,18 @@ As this class uses AdMob as the external dependency, there is no way to use it w
 
 In order to use this class you just need to copy `AKGADWrapperVC.h` and `AKGADWrapperVC.m` files and install [SAMKeychain](https://cocoapods.org/pods/SAMKeychain) and [Google-Mobile-Ads-SDK](https://cocoapods.org/pods/Google-Mobile-Ads-SDK) libraries as dependencies or connect them manually.
 
-#### CocoaPods: Objective-C only
+#### CocoaPods: Objective-C Only
 Add the following line to your Podfile.
 
 ```
-pod "AKGADWrapper", "~> 1.0"
+pod "AKGADWrapper", "~> 1.1.0"
 ```
 
-Then run `pod install`.
+Execute `pod install`.
 
 ## Usage
 
-#### Example of wrapping `rootViewController`
+#### Example of Wrapping `rootViewController`
 ```objective-c
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -36,20 +35,23 @@ Then run `pod install`.
 	//Optionally set targeting options
 	wrappedVC.gender = GADBaseGenderMale;
 	//Set as the rootViewController
-	self.window.rootViewController = wrappedVC; 
+	self.window.rootViewController = wrappedVC;
+
+	/// Set the color under the banner for the frameless devices
+    wrappedVC.view.backgroundColor = [UIColor redColor];
    
 	return YES;
 }
 ```
 
 #### Removing Ads
-To remove Ads simply call `removeAds:` with `true` for disabling them forever or `false` for just a particular banner.
+To hide Ads call `removeAds:` with `true` for disabling them forever or `false` to hide the currently presented banner but present it again after the app relaunch.
 ```objective-c
 [wrapper removeAds:false];
 ```
 
-#### Delaying Ads presentation
-In order to improve retention of your application, there is `showAdsAfter` feature which helps you to set a delay for presenting adds only after some amount of application launches. To start presenting Ads only on 3rd launch just set this property to `2` before presenting `AKGADWrapperVC` instance.
+#### Delaying Ads Presentation
+In order to improve retention during the first app usage sessions, there is `showAdsAfter` feature which helps you to set a delay for presenting ads only after some amount of application launches. To start presenting Ads only on the 3rd launch set this property to `2` before presenting `AKGADWrapperVC` instance.
 ```objective-c
 wrapper.showAdsAfter = 2;
 ```
